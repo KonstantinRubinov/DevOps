@@ -1,0 +1,16 @@
+version: '3'
+services:
+  timeservice: 
+    build: timerservice
+    ports:
+    - "8080:5000"
+    volumes:
+    - service_volume:/myproject
+  loggerservice: 
+    build: loggerservice
+    ports:
+    - "8081:5001"
+    volumes:
+    - service_volume:/myproject
+volumes:
+  service_volume:

@@ -1,0 +1,33 @@
+docker pull node
+touch Dockerfile
+vim Dockerfile
+touch .dockerignore
+vim .dockerignore
+docker build -t develeap/node-web-app .
+docker images
+docker events&
+docker run -p 49160:8080 -d develeap/node-web-app
+docker logs f19ee4276748edbd756d4ee7ab695df9a7a962e736fa1d01bbeca94918e1dab5
+docker ps
+docker logs 1e2de006dcce
+curl -i localhost:49160
+
+
+
+docker build -t kons .
+docker container run --name mysite -p 8080:3306 kons 3306
+----docker container rm -f mysite
+localhost:8080
+
+
+
+
+
+
+
+
+
+docker build -t kons .
+docker container run --name myjava kons
+----docker container rm -f myjava
+localhost:8080

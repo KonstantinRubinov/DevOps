@@ -1,0 +1,35 @@
+1 - docker pull mysql/mysql-server:latest
+* docker container run -d --name mysql -e MYSQL_ROOT_PASSWORD=kostya mysql/mysql-server
+  docker exec -it mysql bash
+* mysql -u root -p
+  kostya
+  select 1;
+2 - docker run --name mysql -p 8877:3306 -d mysql/mysql-server
+  telnet localhost 8877
+3 - docker run --name mysql -p 8877:3306 -v $PWD/mysql:/etc/mysql -v $PWD/sql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=kostya -d mysql/mysql-server
+  docker exec -it mysql bash
+  cd /etc/mysql
+  mysql -u root -p
+  kostya
+  source dump.sql
+  use mydb;
+  SELECT * FROM `SuperHeroes`
+  INSERT INTO SuperHeroes (user_id, username, first_name, last_name, gender, password, status) VALUES (19, 'Aquaman', 'Artur', 'Coury', 'Male', 'e6a33eee180qwdqwdwqd74fee8c2c66b8', 1);
+  docker restart mysql
+  docker exec -it mysql bash
+  mysql -uroot -p
+  kostya
+  use mydb;
+  SELECT * FROM `SuperHeroes`;
+  docker container stop mysql
+  docker container rm  mysql
+  docker run --name mysql -p 8877:3306 -v $PWD/mysql:/etc/mysql -v $PWD/sql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=kostya -d mysql/mysql-server
+  docker exec -it mysql bash
+  mysql -uroot -p
+  kostya 
+  use mydb; 
+  SELECT * FROM `SuperHeroes`
+
+
+
+

@@ -1,0 +1,9 @@
+docker images
+docker events&
+
+docker build -t time .
+docker run -p 8080:5000 -d time
+
+
+docker build -t log .
+docker run -p 8081:5001 -d log
